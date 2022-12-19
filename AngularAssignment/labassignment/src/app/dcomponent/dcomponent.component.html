@@ -1,0 +1,11 @@
+<div>   
+    <button (click)="Display=true; ClickMe()"> Display Details</button>
+    <p>Your Name</p>  
+    <p  *ngIf="Display">{{ name }}</p>  
+    <ul style="background-color: blue;" *ngFor="let i of countShow">
+    <li>
+        {{i}}
+    </li > 
+    </ul>
+    
+    </div>
