@@ -1,0 +1,53 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons” rel=”stylesheet">
+
+<form [formGroup]="loginForm" (ngSubmit)="submit()">
+  <div> <mat-form-field class="col-12">
+    <mat-icon matSuffix>email</mat-icon>
+    <span>Email</span>
+    <input type="email" email required name="email" matInput placeholder="Email">
+  </mat-form-field></div>
+  <div> <mat-form-field class="col-12">
+    
+    <span>Password</span>
+    <input type="password" email required name="password" matInput placeholder="Enter your Password" >
+  </mat-form-field></div>
+  <div>
+    <mat-form-field class="col-12">
+      <mat-icon>phone</mat-icon>
+      <span>Mobile</span>
+      <input required  matInput placeholder="Mobile" >
+   </mat-form-field>
+  </div>
+  <div><mat-radio-group >
+    <span>Gender: </span>
+    <mat-radio-button >Male </mat-radio-button>
+    <mat-radio-button >Female</mat-radio-button>
+  </mat-radio-group></div>
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Enter a date range</mat-label>
+      <mat-date-range-input [formGroup]="range" [rangePicker]="picker">
+        <input matStartDate formControlName="start" placeholder="Start date">
+        <input matEndDate formControlName="end" placeholder="End date">
+      </mat-date-range-input>
+      <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    
+      <mat-error *ngIf="range.controls.start.hasError('matStartDateInvalid')">Invalid start date</mat-error>
+      <mat-error *ngIf="range.controls.end.hasError('matEndDateInvalid')">Invalid end date</mat-error>
+    </mat-form-field>
+  </div>
+  <div><mat-form-field appearance="fill">
+    <mat-label>Skills</mat-label>
+    <mat-select formControlName="status" multiple>
+      <mat-select-trigger>
+        
+      </mat-select-trigger>
+      <mat-option *ngFor="let topping of skills" [value]="topping">{{topping}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  </div>
+
+  <div><button mat-raised-button style="margin-left:1.5rem;">Submit</button></div>
+</form>
