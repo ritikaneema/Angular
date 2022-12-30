@@ -1,0 +1,56 @@
+<mat-sidenav-container fullscreen>
+
+  <mat-sidenav #sidenav>
+  
+  <mat-nav-list (click)="sidenav.close()">
+  
+  <a mat-list-item>
+  
+            <mat-icon>list</mat-icon>
+  
+            <span>Course List</span>
+  
+        </a>
+  
+   <a mat-list-item>
+  
+            <mat-icon>add</mat-icon>
+  
+            <span>Add Courses</span>
+  
+        </a>
+  
+        </mat-nav-list>
+  
+    </mat-sidenav>
+  
+    <mat-toolbar color="primary">
+  
+        <button mat-icon-button (click)="sidenav.open()">
+  
+            <mat-icon>menu</mat-icon>
+  
+        </button>
+        <a mat-button>
+  
+          <mat-icon>House</mat-icon>
+
+          Home  
+    </a>
+        <a mat-button routerLink="aboutus" routerLinkActive="active">Aboutus</a>
+
+          <a mat-button routerLink="registration" routerLinkActive="active">Registration</a>
+          <a mat-button routerLink="login" routerLinkActive="active">Log in</a>
+    </mat-toolbar>
+  
+   
+  
+    <div>
+  
+    </div>
+  
+    <router-outlet></router-outlet>
+  
+     
+  
+  </mat-sidenav-container>
