@@ -1,0 +1,85 @@
+<h3 style="text-align: center;">User Login</h3>
+
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+            <ng-template matStepLabel>Basic Information</ng-template>
+            <mat-form-field>
+                <mat-label>Name</mat-label>
+                <input matInput placeholder="Name" formControlName="name" required>
+                <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+            <br />
+            <mat-form-field>
+                <mat-label>Email Id</mat-label>
+                <input matInput placeholder="emailid" formControlName="emailid" required>
+                <mat-icon matSuffix>email</mat-icon>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Father's Name</mat-label>
+                <input matInput placeholder="Name" formControlName="fname" required>
+                <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <mat-label>Mother's Name</mat-label>
+                <input matInput placeholder="Name" formControlName="mname" required>
+                <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="outline">
+                <mat-label>DOB</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="dob">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field>
+                <span>You have internet banking: </span>
+                <mat-radio-group aria-label="Select an option" formControlName="radio">
+                    <mat-radio-button value="M"><mat-icon>Yes</mat-icon></mat-radio-button>
+                    &nbsp;&nbsp;
+                    <mat-radio-button value="F"><mat-icon>No</mat-icon></mat-radio-button>
+                </mat-radio-group>
+            </mat-form-field>
+            <div>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Bank Details</ng-template>
+            <mat-form-field>
+                <mat-label>Account no</mat-label>
+                <input matInput placeholder="Account" formControlName="account" required>
+            </mat-form-field>
+            <br />
+            <mat-form-field>
+                <mat-label>IFSC code</mat-label>
+                <input matInput placeholder="IFSC" formControlName="ifsc" required>
+            </mat-form-field>
+            <br />
+            <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+    <mat-step>
+        <ng-template matStepLabel>communication Address</ng-template>
+        <p>You are now done.</p>
+        <mat-list>
+            <mat-list-item> <strong>Name:</strong> {{ this.firstFormGroup.value.name }}</mat-list-item>
+            <mat-list-item> <strong>Email Id:</strong> {{ this.firstFormGroup.value.emailid }}</mat-list-item>
+            <mat-list-item> <strong>Account No:</strong> {{ this.secondFormGroup.value.account }}</mat-list-item>
+            <mat-list-item> <strong>IFSC Code:</strong> {{ this.secondFormGroup.value.ifsc }}</mat-list-item>
+        </mat-list>
+        <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+            <button mat-button (click)="submit()">Submit</button>
+        </div>
+    </mat-step>
+</mat-horizontal-stepper>

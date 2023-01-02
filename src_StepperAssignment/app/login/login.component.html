@@ -1,0 +1,25 @@
+<div>
+    <form class="login-form" [formGroup]="loginForm">
+        <mat-card-title style="text-align:justify;">User LogIn</mat-card-title>
+        <br>
+        <br>
+        <div>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>User Name</mat-label>
+                <mat-icon matSuffix>person</mat-icon>
+                <input matInput placeholder="Enter your name" name="usename">
+            </mat-form-field>
+        </div>
+        <br>
+        <div>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Password</mat-label>
+                <mat-icon matSuffix>visibility_off</mat-icon>
+                <input matInput placeholder="Enter your password" value="" name="password" type="password">
+            </mat-form-field>
+        </div>
+        <button mat-raised-button color="primary" (click)="OnSubmit()" routerLink="stepper">Submit</button>
+        
+
+    </form>
+</div>
